@@ -1,0 +1,14 @@
+apiVersion: security.istio.io/v1beta1
+kind: AuthorizationPolicy
+metadata:
+  name: ingress-policy
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  action: DENY
+  rules:
+  - from:
+    - source:
+        ipBlocks: ["172.17.0.9"] #ip of an app in cluster #,"0.0.0.0/0"] # We just need to identify the right Client ip @ of the user
