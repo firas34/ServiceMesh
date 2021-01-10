@@ -1,7 +1,7 @@
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: ingress-policy
+  name: ad1b2639-7e8f-40e4-a41d-27e3bffc531d
   namespace: default
 spec:
   selector:
@@ -11,4 +11,4 @@ spec:
   rules:
   - from:
     - source:
-        ipBlocks: ["172.17.0.11" ]
+        ipBlocks: ["0.0.0.0/0" ]
