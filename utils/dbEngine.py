@@ -48,7 +48,7 @@ def getRuleData(db_name,table_name,ruleId):
         cur.execute('select ruleData from '+table_name+' where ruleId = "' + ruleId + '"'  )
         result = cur.fetchone()[0]
     except:
-        result = "HEY"
+        result = None 
     cur.close()
     return result
 

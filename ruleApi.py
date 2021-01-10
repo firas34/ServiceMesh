@@ -1,10 +1,11 @@
 from flask import Flask , request
 import os
 from utils.dbEngine import *
-import json
-app = Flask(__name__)
-#global ruleId = 1111
 import uuid
+import json
+
+
+app = Flask(__name__)
 
 def generateRuleFile(JSONFILE, ruleId):
     target = JSONFILE["appName"]
