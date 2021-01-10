@@ -1,6 +1,7 @@
 from flask import Flask , request
 import os
 from utils.dbEngine import *
+import json
 app = Flask(__name__)
 #global ruleId = 1111
 import uuid
@@ -25,7 +26,7 @@ def addRule():
     ruleId  = str(uuid.uuid4()) 
     generateRuleFile(JSONFILE, ruleId)
     # save in db
-    addRuleData("db/Rules","RULES",ruleId, JSONFILE)
+    addRuleData("db/Rules","RULES",ruleId, json.dumps(JSONFILE))
     stream = os.popen('kubectl apply -f rule.yaml')
     return { "response": stream.read() , "ruleId": ruleId }
 
@@ -40,7 +41,7 @@ def updateRule(ruleId):
     JSONFILE = request.get_json()
     generateRuleFile(JSONFILE, ruleId)
     # update data in db
-    updateRuleData("db/Rules","RULES",ruleId, JSONFILE)
+    updateRuleData("db/Rules","RULES",ruleId, json.dumps(JSONFILE))
     stream = os.popen('kubectl apply -f rule.yaml')
     return { "response": stream.read() , "ruleId": ruleId }
 

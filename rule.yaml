@@ -1,7 +1,7 @@
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: c9c4038c-7229-4129-97c3-df3178572004
+  name: 4e236028-ccc5-404e-99d0-3faafa17db90
   namespace: default
 spec:
   selector:
