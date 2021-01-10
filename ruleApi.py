@@ -1,5 +1,6 @@
 from flask import Flask , request
 import os
+from utils.dbEngine import *
 app = Flask(__name__)
 #global ruleId = 1111
 import uuid
@@ -24,6 +25,7 @@ def addRule():
     ruleId  = str(uuid.uuid4()) 
     generateRuleFile(JSONFILE, ruleId)
     # save in db
+    addRuleData("db/Rules","RULES",ruleId, JSONFILE)
     stream = os.popen('kubectl apply -f rule.yaml')
     return { "response": stream.read() , "ruleId": ruleId }
 
@@ -37,13 +39,15 @@ def deleteRule(ruleId):
 def updateRule(ruleId):
     JSONFILE = request.get_json()
     generateRuleFile(JSONFILE, ruleId)
-    # save in db
+    # update data in db
+    updateRuleData("db/Rules","RULES",ruleId, JSONFILE)
     stream = os.popen('kubectl apply -f rule.yaml')
     return { "response": stream.read() , "ruleId": ruleId }
 
 @app.route('/showRule/<ruleId>', methods=["GET"])
 def showRule(ruleId):
-    return "next version maybe!"
+    return getRuleData("db/Rules","RULES",ruleId)
+    
 
 if __name__ == "__main__":
 	app.run(port=9090)
