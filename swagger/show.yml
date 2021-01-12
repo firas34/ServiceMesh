@@ -1,0 +1,12 @@
+summary: "Show a rule"
+description: "this request shows a specified rule using its id"
+consumes:
+- "string"
+produces:
+- "application/json"
+parameters:
+- in: path
+  type: "string"
+  name: "ruleId"
+  description: "Accepts a input ruleId"
+  required: true

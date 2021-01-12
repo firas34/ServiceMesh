@@ -1,0 +1,31 @@
+summary: "Update a rule"
+description: "this request updates a specified rule using its id."
+consumes:
+- "application/json"
+produces:
+- "application/json"
+parameters:
+- in: path
+  type: "string"
+  name: "ruleId"
+  description: "Accepts a input ruleId"
+  required: true
+- in: "body"
+  name: "body"
+  description: "Accepts a input dictionary of inputs appName, ExceptionIp and rule"
+  required: true
+  schema:
+    type: "object"
+    properties:
+      appName:
+        type: "object"
+        format: "string"
+        example : "nginx"  
+      ExceptionIp:
+        type: "object"
+        format: "string"
+        example : "0.0.0.0/0"
+      rule:
+        type: "object"
+        format: "string"
+        example : "DENY"

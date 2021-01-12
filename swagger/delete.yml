@@ -1,0 +1,11 @@
+summary: "Delete a rule"
+description: "this request deletes a specified rule using its id"
+produces:
+- "application/json"
+parameters:
+- in: path
+  type: "string"
+  name: "ruleId"
+  description: "Accepts a input ruleId"
+  required: true
+
