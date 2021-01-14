@@ -33,11 +33,13 @@ def updateRuleData(db_name,table_name,ruleId,ruleData):
     con = sqlite3.connect(db_name)
     cur = con.cursor()
     try:
-        cur.execute('update '+ table_name+' set ruleData = "'+ ruleData +'" where ruleId = "' + ruleId + '"')
+        cur.execute('delete from '+ table_name +' where ruleId = "' + ruleId + '"' )
+        cur.execute('insert into '+ table_name +' (ruleId,ruleData) values (?, ?)',[ruleId,ruleData])
         con.commit()
-    except:
-        pass
         print("Updated !")
+    except:
+        print("Error while updating !")
+        pass
     cur.close() 
     return 0
 

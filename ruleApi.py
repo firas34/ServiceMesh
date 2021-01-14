@@ -77,6 +77,7 @@ def updateRule(ruleId):
     JSONFILE = request.get_json()
     generateRuleFile(JSONFILE, ruleId)
     # update data in db
+    print(json.dumps(JSONFILE))
     updateRuleData("db/Rules","RULES",ruleId, json.dumps(JSONFILE))
     stream = os.popen('kubectl apply -f rule.yaml')
     return { "response": stream.read() , "ruleId": ruleId }

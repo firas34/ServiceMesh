@@ -1,13 +1,13 @@
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: 9dd67f8b-0eb9-499f-85a3-2f88dbe2409b
+  name: e128b620-89ab-41cf-9abd-0266cabca4a5
   namespace: default
 spec:
   selector:
     matchLabels:
       app: nginx
-  action: DENY
+  action: ALLOW
   rules:
   - from:
     - source:
