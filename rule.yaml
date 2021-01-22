@@ -1,7 +1,7 @@
 apiVersion: security.istio.io/v1beta1
 kind: AuthorizationPolicy
 metadata:
-  name: e128b620-89ab-41cf-9abd-0266cabca4a5
+  name: 21ca4afc-aad1-4d9c-8eb3-6144bda0f783
   namespace: default
 spec:
   selector:
@@ -11,4 +11,4 @@ spec:
   rules:
   - from:
     - source:
-        ipBlocks: ["0.0.0.0/0"]
+        ipBlocks: ["172.17.0.8"]

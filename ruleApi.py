@@ -39,7 +39,7 @@ swagger = Swagger(app, config=swagger_config, template=template)
 
 def generateRuleFile(JSONFILE, ruleId):
     target = JSONFILE["appName"]
-    l = JSONFILE["ExceptionIp"]
+    l = JSONFILE["ipRange"]
     rule = JSONFILE["rule"].upper()
     List = '["'+l+'"]'
     print(List)

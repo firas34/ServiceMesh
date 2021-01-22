@@ -12,7 +12,7 @@ parameters:
   required: true
 - in: "body"
   name: "body"
-  description: "Accepts a input dictionary of inputs appName, ExceptionIp and rule"
+  description: "Accepts a input dictionary of inputs appName, ipRange and rule"
   required: true
   schema:
     type: "object"
@@ -21,7 +21,7 @@ parameters:
         type: "object"
         format: "string"
         example : "nginx"  
-      ExceptionIp:
+      ipRange:
         type: "object"
         format: "string"
         example : "0.0.0.0/0"
